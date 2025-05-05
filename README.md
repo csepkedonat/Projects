@@ -1,1 +1,1 @@
-# Projects
+Ebben a szekcióban tekinthetők meg az egyéni fejlesztői projektjeim, amelyek gyakorlati demonstrációi a szoftverfejlesztési tudásomnak és készségeimnek. A projektekhez tartozó rövid leírások részletesebben kifejtik az adott kód működését.

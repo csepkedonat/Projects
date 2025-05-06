@@ -194,7 +194,7 @@ namespace kavefozo
             }
             else
             {
-                Console.WriteLine($"Az edényben lévő {Adag} adag kávé {Edeny.Minoseg}");
+                Console.WriteLine($"Az edényben {Adag} adag {Edeny.Minoseg} kávé van");
             }
             
             

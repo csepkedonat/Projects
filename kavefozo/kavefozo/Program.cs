@@ -10,35 +10,87 @@ namespace kavefozo
     {
         static void Main(string[] args)
         {
+
             Kavefozo kave = new Kavefozo();
 
-            kave.foz();
+            bool kilepes = false;
 
-            kave.feltolt("viz", 10);
-            kave.feltolt("kave", 6);
+            List<int> valasztasok = new List<int>() { 1, 2, 3, 4, 5, 6, 7 };
 
-            kave.foz();
+            string valasztas;
 
-            kave.ranez();
+            while (!kilepes)
+            {
+                Console.WriteLine("\nKávéfőző menü:");
+                Console.WriteLine();
+                Console.WriteLine("1. Kávégép feltöltése");
+                Console.WriteLine("2. Kávégép kiürítése");
+                Console.WriteLine("3. Kávéfőzés");
+                Console.WriteLine("4. Kávé megkóstolása");
+                Console.WriteLine("5. Edény kiöntése");
+                Console.WriteLine("6. Állapot megtekintése");
+                Console.WriteLine("7. Kilépés");
+                Console.WriteLine();
+                Console.Write("Válassz egy opciót: ");
 
-            kave.kiont();
+                valasztas = Console.ReadLine();
 
-            Console.WriteLine(kave.Edeny.Minoseg);
+                Console.WriteLine();
 
-            kave.feltolt("kave", 3);
+                if (int.TryParse(valasztas, out int valasztasi))
+                {
+                    if (valasztasok.Contains(valasztasi))
+                    {
+                        switch (valasztasi)
+                        {
+                            case 1:
+                                Console.WriteLine("Mit szeretne bele tölteni? (kave, viz)");
+                                string mit = Console.ReadLine();
 
-            kave.kiurit("kave");
+                                Console.WriteLine("Hány adagot szeretne beletölteni?");
+                                int mennyit = int.Parse(Console.ReadLine());
 
-            kave.feltolt("kave", 6);
+                                kave.feltolt(mit, mennyit);
+                                break;
 
-            kave.foz();
+                            case 2:
+                                Console.WriteLine("Mit szeretne kiönteni? (kave, viz)");
+                                string mit2 = Console.ReadLine();
 
-            kave.ranez();
+                                kave.kiurit(mit2);
+                                break;
 
-            kave.kostol();
+                            case 3:
+                                kave.foz();
+                                break;
 
-            //Console.ReadLine();
+                            case 4:
+                                kave.kostol();
+                                break;
 
+                            case 5:
+                                kave.kiont();
+                                break;
+
+                            case 6:
+                                kave.ranez();
+                                break;
+
+                            case 7:
+                                kilepes = true;
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("A válasz nem szerepel az opciók között.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Nem megfelelő formátum");
+                }
+            }
         }
     }
 }
